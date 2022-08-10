@@ -11,4 +11,7 @@ public class OperationStorage {
     public void save(Operation operation){
         operations.add(operation);
     }
+    public List<Operation> getOperations(){
+        return operations;
+    }
 }

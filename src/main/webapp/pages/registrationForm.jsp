@@ -35,6 +35,7 @@
                     <input type="password" name="password" class="form-control" id="exampleInputPassword1">
                 </div>
                 <button type="submit" class="btn btn-primary">Register</button>
+                <a href="/" class="btn btn-primary">Back</a>
             </form>
 
         </div>
