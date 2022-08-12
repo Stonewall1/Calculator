@@ -1,6 +1,7 @@
 package by.tms.web.servlet;
 
 import by.tms.entity.Operation;
+import by.tms.entity.User;
 import by.tms.service.CalculatorService;
 
 import javax.servlet.ServletException;
@@ -25,6 +26,7 @@ public class CalculatorServlet extends HttpServlet {
         operation.setX1(Double.parseDouble(req.getParameter("x1")));
         operation.setX2(Double.parseDouble(req.getParameter("x2")));
         operation.setOperation(req.getParameter("operation"));
+        operation.setUser((User) req.getSession().getAttribute("currentUser"));
         operation = calculatorService.calculate(operation);
         req.setAttribute("result" , operation);
 

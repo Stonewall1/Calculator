@@ -5,6 +5,15 @@ public class Operation {
     private double x2;
     private double result;
     private String operation;
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public Operation(){
 

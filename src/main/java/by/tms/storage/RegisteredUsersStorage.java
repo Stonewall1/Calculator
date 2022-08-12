@@ -23,4 +23,8 @@ public class RegisteredUsersStorage {
         }
         return Optional.empty();
     }
+
+    public List<User> getUsers(){
+        return users;
+    }
 }
