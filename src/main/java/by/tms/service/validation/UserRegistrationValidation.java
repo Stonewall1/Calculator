@@ -15,6 +15,6 @@ public class UserRegistrationValidation {
         return false;
     }
     public boolean checkIsFieldsEmpty(User user){
-        return user.getEmail().equals("") || user.getPassword().equals("") || user.getName().equals("");
+        return user.getEmail().isEmpty() || user.getPassword().isEmpty() || user.getName().isEmpty();
     }
 }

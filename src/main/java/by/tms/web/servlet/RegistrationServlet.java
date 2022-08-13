@@ -18,7 +18,7 @@ public class RegistrationServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        getServletContext().getRequestDispatcher("/pages/registration.jsp").forward(req , resp);
+        getServletContext().getRequestDispatcher(Constants.registration).forward(req , resp);
     }
 
     @Override
@@ -32,16 +32,16 @@ public class RegistrationServlet extends HttpServlet {
 
         if(!userExistsInStorage && !fieldsEmpty){
             registrationService.register(user);
-            resp.sendRedirect("/");
+            resp.sendRedirect(Constants.startPage);
         }
         else{
             if(userExistsInStorage){
                 req.setAttribute("message", "That user already registered");
-                getServletContext().getRequestDispatcher("/pages/registration.jsp").forward(req, resp);
+                getServletContext().getRequestDispatcher(Constants.registration).forward(req, resp);
             }
             else {
                 req.setAttribute("message", "Fields cant be empty");
-                getServletContext().getRequestDispatcher("/pages/registration.jsp").forward(req, resp);
+                getServletContext().getRequestDispatcher(Constants.registration).forward(req, resp);
             }
         }
     }

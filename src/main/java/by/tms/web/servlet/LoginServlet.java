@@ -16,7 +16,7 @@ public class LoginServlet extends HttpServlet {
     private final RegistrationService registrationService = new RegistrationService();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        getServletContext().getRequestDispatcher("/pages/login.jsp").forward(req , resp);
+        getServletContext().getRequestDispatcher(Constants.pages).forward(req , resp);
     }
 
     @Override
@@ -28,14 +28,14 @@ public class LoginServlet extends HttpServlet {
             User user = byEmail.get();
             if (user.getPassword().equals(password)) {
                 req.getSession().setAttribute("currentUser", user);
-                resp.sendRedirect("/");
+                resp.sendRedirect(Constants.startPage);
             } else {
                 req.setAttribute("message", "Wrong password");
-                getServletContext().getRequestDispatcher("/pages/login.jsp").forward(req, resp);
+                getServletContext().getRequestDispatcher(Constants.pages).forward(req, resp);
             }
         } else {
             req.setAttribute("message", "User not found");
-            getServletContext().getRequestDispatcher("/pages/login.jsp").forward(req, resp);
+            getServletContext().getRequestDispatcher(Constants.pages).forward(req, resp);
         }
     }
 }

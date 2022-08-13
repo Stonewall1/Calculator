@@ -26,6 +26,6 @@ public class OperationsStoryServlet extends HttpServlet {
              }
          }
          req.setAttribute("operations" , ops);
-         getServletContext().getRequestDispatcher("/pages/story.jsp").forward(req , resp);
+         getServletContext().getRequestDispatcher(Constants.story).forward(req , resp);
     }
 }

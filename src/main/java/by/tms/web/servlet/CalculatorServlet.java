@@ -20,7 +20,7 @@ public class CalculatorServlet extends HttpServlet {
     private final OperationValidation operationValidation = new OperationValidation();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        getServletContext().getRequestDispatcher("/pages/calculator.jsp").forward(req , resp);
+        getServletContext().getRequestDispatcher(Constants.calculator).forward(req , resp);
     }
 
     @Override
@@ -33,7 +33,7 @@ public class CalculatorServlet extends HttpServlet {
                 , req.getParameter("operation"));
         if(isEmpty){
             req.setAttribute("message", "Fields cant be empty");
-            getServletContext().getRequestDispatcher("/pages/calculator.jsp").forward(req, resp);
+            getServletContext().getRequestDispatcher(Constants.calculator).forward(req, resp);
         }
         else{
             operation.setX1(Double.parseDouble(req.getParameter("x1")));
@@ -46,11 +46,11 @@ public class CalculatorServlet extends HttpServlet {
                 operation = calculatorService.calculate(operation);
 
                 req.setAttribute("result" , operation);
-                getServletContext().getRequestDispatcher("/pages/calculator.jsp").forward(req , resp);
+                getServletContext().getRequestDispatcher(Constants.calculator).forward(req , resp);
             }
             else{
                 req.setAttribute("message", "Enter right operation");
-                getServletContext().getRequestDispatcher("/pages/calculator.jsp").forward(req, resp);
+                getServletContext().getRequestDispatcher(Constants.calculator).forward(req, resp);
             }
         }
     }
