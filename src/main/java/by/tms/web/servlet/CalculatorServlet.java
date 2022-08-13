@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.time.LocalDateTime;
 
 @WebServlet("/calculator")
 public class CalculatorServlet extends HttpServlet {
@@ -41,7 +42,9 @@ public class CalculatorServlet extends HttpServlet {
 
             boolean isOperationFieldFilledWrong = operationValidation.wrongOperationFieldFilling(operation.getOperation());
             if(!isOperationFieldFilledWrong){
+                operation.setTime(LocalDateTime.now());
                 operation = calculatorService.calculate(operation);
+
                 req.setAttribute("result" , operation);
                 getServletContext().getRequestDispatcher("/pages/calculator.jsp").forward(req , resp);
             }

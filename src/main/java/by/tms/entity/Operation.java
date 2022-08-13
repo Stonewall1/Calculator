@@ -1,11 +1,14 @@
 package by.tms.entity;
 
+import java.time.LocalDateTime;
+
 public class Operation extends Entity{
     private double x1;
     private double x2;
     private double result;
     private String operation;
     private User user;
+    private LocalDateTime time;
 
     public User getUser() {
         return user;
@@ -57,6 +60,14 @@ public class Operation extends Entity{
         this.result = result;
     }
 
+    public LocalDateTime getTime() {
+        return time;
+    }
+
+    public void setTime(LocalDateTime time) {
+        this.time = time;
+    }
+
     @Override
     public String toString() {
         return "Operation{" +
@@ -64,6 +75,7 @@ public class Operation extends Entity{
                 ", x2=" + x2 +
                 ", result=" + result +
                 ", operation='" + operation + '\'' +
+                ", time=" + time +
                 '}';
     }
 }
