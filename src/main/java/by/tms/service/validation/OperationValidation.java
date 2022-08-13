@@ -1,7 +1,5 @@
 package by.tms.service.validation;
 
-import by.tms.entity.Operation;
-
 public class OperationValidation {
 
     public boolean wrongOperationFieldFilling(String operation){
@@ -11,9 +9,6 @@ public class OperationValidation {
                 && !operation.equals("div");
     }
     public boolean isFieldsEmpty(String x1 , String x2 , String operation){
-        if(x1.isEmpty() || x2.isEmpty() || operation.isEmpty()){
-            return true;
-        }
-        return false;
+        return x1.isEmpty() || x2.isEmpty() || operation.isEmpty();
     }
 }
