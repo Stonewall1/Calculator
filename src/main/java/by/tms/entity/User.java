@@ -1,6 +1,6 @@
 package by.tms.entity;
 
-public class User {
+public class User extends Entity{
     private long id;
     private String name;
     private String email;

@@ -37,6 +37,7 @@
                 <button type="submit" class="btn btn-primary">Register</button>
                 <a href="/" class="btn btn-primary">Back</a>
             </form>
+            <p>${message}</p>
 
         </div>
     </div>

@@ -12,7 +12,15 @@
 
 <div class="container">
     <div class="row justify-content-center mt-5">
-        <div class="col-8 text-center mt-5 ">
+        <div class="col-8 text-left mt-5 ">
+
+            <h3>Operations setup</h3>
+            <ul>
+                <li>sum - addition</li>
+                <li>sub - subtraction</li>
+                <li>mul - multiplication</li>
+                <li>div - division</li>
+            </ul>
 
 <form action="/calculator" method="post">
     <input type="number" name="x1" placeholder="Input first number">
@@ -21,6 +29,7 @@
     <button class="btn btn-primary">Calculate</button>
     <a href="/" class="btn btn-primary">Back</a>
 </form>
+<p>${message}</p>
 <p>${result}</p>
 
         </div>

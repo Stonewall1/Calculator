@@ -2,6 +2,7 @@ package by.tms.web.servlet;
 
 import by.tms.entity.User;
 import by.tms.service.RegistrationService;
+import by.tms.service.validation.UserRegistrationValidation;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,7 +13,8 @@ import java.io.IOException;
 
 @WebServlet(value = "/registration")
 public class RegistrationServlet extends HttpServlet {
-    private RegistrationService registrationService = new RegistrationService();
+    private final RegistrationService registrationService = new RegistrationService();
+    private final UserRegistrationValidation userRegistrationValidation = new UserRegistrationValidation();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -25,8 +27,22 @@ public class RegistrationServlet extends HttpServlet {
         user.setName(req.getParameter("name"));
         user.setEmail(req.getParameter("email"));
         user.setPassword(req.getParameter("password"));
-        registrationService.register(user);
+        boolean userExistsInStorage = userRegistrationValidation.checkUserInStorage(user);
+        boolean fieldsEmpty = userRegistrationValidation.checkIsFieldsEmpty(user);
 
-        resp.sendRedirect("/");
+        if(!userExistsInStorage && !fieldsEmpty){
+            registrationService.register(user);
+            resp.sendRedirect("/");
+        }
+        else{
+            if(userExistsInStorage){
+                req.setAttribute("message", "That user already registered");
+                getServletContext().getRequestDispatcher("/pages/registration.jsp").forward(req, resp);
+            }
+            else {
+                req.setAttribute("message", "Fields cant be empty");
+                getServletContext().getRequestDispatcher("/pages/registration.jsp").forward(req, resp);
+            }
+        }
     }
 }

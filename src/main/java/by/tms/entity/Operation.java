@@ -1,6 +1,6 @@
 package by.tms.entity;
 
-public class Operation {
+public class Operation extends Entity{
     private double x1;
     private double x2;
     private double result;
