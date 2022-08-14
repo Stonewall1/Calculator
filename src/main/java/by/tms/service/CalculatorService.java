@@ -6,7 +6,7 @@ import by.tms.storage.OperationStorage;
 public class CalculatorService {
     private final OperationStorage operationStorage = new OperationStorage();
 
-    public Operation calculate(Operation operation){
+    public Operation calculate(Operation operation) {
         double result = 0;
         switch (operation.getOperation()) {
             case "sum":

@@ -11,6 +11,7 @@ public class RegistrationService {
     public void register(User user) {
         registeredUsersStorage.save(user);
     }
+
     public Optional<User> findByEmail(String email) {
         return registeredUsersStorage.findByEmail(email);
     }

@@ -2,7 +2,7 @@ package by.tms.entity;
 
 import java.time.LocalDateTime;
 
-public class Operation extends Entity{
+public class Operation extends Entity {
     private double x1;
     private double x2;
     private double result;
@@ -18,7 +18,7 @@ public class Operation extends Entity{
         this.user = user;
     }
 
-    public Operation(){
+    public Operation() {
 
     }
 

@@ -11,10 +11,11 @@ public class RegisteredUsersStorage {
     private static final List<User> users = new ArrayList<>();
     private static final AtomicLong idGenerator = new AtomicLong(0);
 
-    public void save(User user){
+    public void save(User user) {
         user.setId(idGenerator.incrementAndGet());
         users.add(user);
     }
+
     public Optional<User> findByEmail(String email) {
         for (User user : users) {
             if (user.getEmail().equals(email)) {
@@ -24,7 +25,7 @@ public class RegisteredUsersStorage {
         return Optional.empty();
     }
 
-    public List<User> getUsers(){
+    public List<User> getUsers() {
         return users;
     }
 }

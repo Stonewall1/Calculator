@@ -8,10 +8,11 @@ import java.util.List;
 public class OperationStorage {
     private static final List<Operation> operations = new ArrayList<>();
 
-    public void save(Operation operation){
+    public void save(Operation operation) {
         operations.add(operation);
     }
-    public List<Operation> getOperations(){
+
+    public List<Operation> getOperations() {
         return operations;
     }
 }
