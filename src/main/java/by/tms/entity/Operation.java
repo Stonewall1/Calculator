@@ -1,5 +1,6 @@
 package by.tms.entity;
 
+import java.math.BigInteger;
 import java.time.LocalDateTime;
 
 public class Operation extends Entity {
