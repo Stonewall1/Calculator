@@ -4,7 +4,7 @@ import by.tms.entity.User;
 import by.tms.storage.RegisteredUsersStorage;
 
 public class UserRegistrationValidation {
-    private final RegisteredUsersStorage registeredUsersStorage = new RegisteredUsersStorage();
+    private final RegisteredUsersStorage registeredUsersStorage =RegisteredUsersStorage.getInstance();
 
     public boolean checkUserInStorage(User user) {
         for (User u : registeredUsersStorage.getUsers()) {

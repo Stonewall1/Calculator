@@ -16,7 +16,7 @@ import java.util.List;
 
 @WebServlet(value = "/story", name = "OperationsStoryServlet")
 public class OperationsStoryServlet extends HttpServlet {
-    private final OperationStorage operationStorage = new OperationStorage();
+    private final OperationStorage operationStorage = OperationStorage.getInstance();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

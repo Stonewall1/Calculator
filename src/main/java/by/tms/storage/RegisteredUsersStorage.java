@@ -8,9 +8,19 @@ import java.util.Optional;
 import java.util.concurrent.atomic.AtomicLong;
 
 public class RegisteredUsersStorage {
-    private static final List<User> users = new ArrayList<>();
+    private static RegisteredUsersStorage instance;
+    private  final List<User> users = new ArrayList<>();
     private static final AtomicLong idGenerator = new AtomicLong(0);
 
+    private RegisteredUsersStorage(){
+
+    }
+     public static RegisteredUsersStorage getInstance(){
+        if(instance == null){
+            instance = new RegisteredUsersStorage();
+        }
+        return instance;
+     }
     public void save(User user) {
         user.setId(idGenerator.incrementAndGet());
         users.add(user);
