@@ -1,4 +1,4 @@
-package by.tms.web.constants;
+package by.tms.web.servlet;
 
 public class ServletConstants {
     public static final String CALCULATOR = "/pages/calculator.jsp";

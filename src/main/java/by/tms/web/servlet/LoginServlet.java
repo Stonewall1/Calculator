@@ -2,7 +2,6 @@ package by.tms.web.servlet;
 
 import by.tms.entity.User;
 import by.tms.service.RegistrationService;
-import by.tms.web.constants.ServletConstants;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,7 +13,7 @@ import java.util.Optional;
 
 @WebServlet(value = "/login", name = "LoginServlet")
 public class LoginServlet extends HttpServlet {
-    private final RegistrationService registrationService = new RegistrationService();
+    private final RegistrationService registrationService = RegistrationService.getInstance();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

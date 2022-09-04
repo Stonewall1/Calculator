@@ -7,23 +7,27 @@ import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicLong;
 
-public class RegisteredUsersStorage {
+public class RegisteredUsersStorage implements InMemoryStorage<User>{
     private static RegisteredUsersStorage instance;
-    private  final List<User> users = new ArrayList<>();
-    private static final AtomicLong idGenerator = new AtomicLong(0);
 
-    private RegisteredUsersStorage(){
+    private RegisteredUsersStorage() {
 
     }
-     public static RegisteredUsersStorage getInstance(){
-        if(instance == null){
+
+    public static RegisteredUsersStorage getInstance() {
+        if (instance == null) {
             instance = new RegisteredUsersStorage();
         }
         return instance;
-     }
-    public void save(User user) {
+    }
+
+    private final List<User> users = new ArrayList<>();
+    private static final AtomicLong idGenerator = new AtomicLong(0);
+    @Override
+    public User save(User user) {
         user.setId(idGenerator.incrementAndGet());
         users.add(user);
+        return user;
     }
 
     public Optional<User> findByEmail(String email) {
@@ -34,8 +38,8 @@ public class RegisteredUsersStorage {
         }
         return Optional.empty();
     }
-
-    public List<User> getUsers() {
+    @Override
+    public List<User> getElements() {
         return users;
     }
 }
