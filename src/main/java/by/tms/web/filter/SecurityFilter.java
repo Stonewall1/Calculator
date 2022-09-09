@@ -1,6 +1,6 @@
 package by.tms.web.filter;
 
-import by.tms.web.constants.ServletConstants;
+import by.tms.web.servlet.ServletConstants;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;

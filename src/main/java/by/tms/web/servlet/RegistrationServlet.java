@@ -3,7 +3,6 @@ package by.tms.web.servlet;
 import by.tms.entity.User;
 import by.tms.service.RegistrationService;
 import by.tms.service.validation.UserRegistrationValidation;
-import by.tms.web.constants.ServletConstants;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,7 +13,7 @@ import java.io.IOException;
 
 @WebServlet(value = "/registration", name = "RegistrationServlet")
 public class RegistrationServlet extends HttpServlet {
-    private final RegistrationService registrationService = new RegistrationService();
+    private final RegistrationService registrationService = RegistrationService.getInstance();
     private final UserRegistrationValidation userRegistrationValidation = new UserRegistrationValidation();
 
     @Override

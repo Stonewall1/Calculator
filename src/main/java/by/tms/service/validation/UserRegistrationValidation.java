@@ -1,13 +1,13 @@
 package by.tms.service.validation;
 
 import by.tms.entity.User;
-import by.tms.storage.RegisteredUsersStorage;
+import by.tms.service.RegistrationService;
 
 public class UserRegistrationValidation {
-    private final RegisteredUsersStorage registeredUsersStorage =RegisteredUsersStorage.getInstance();
+    private final RegistrationService registrationService = RegistrationService.getInstance();
 
     public boolean checkUserInStorage(User user) {
-        for (User u : registeredUsersStorage.getUsers()) {
+        for (User u : registrationService.getUsers()) {
             if (user.getEmail().equals(u.getEmail())) {
                 return true;
             }

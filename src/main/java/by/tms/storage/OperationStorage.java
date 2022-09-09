@@ -5,9 +5,8 @@ import by.tms.entity.Operation;
 import java.util.ArrayList;
 import java.util.List;
 
-public class OperationStorage {
+public class OperationStorage implements InMemoryStorage<Operation>{
     private static OperationStorage instance;
-    private final List<Operation> operations = new ArrayList<>();
 
     private OperationStorage() {
 
@@ -19,12 +18,15 @@ public class OperationStorage {
         }
         return instance;
     }
-
-    public void save(Operation operation) {
+    private final List<Operation> operations = new ArrayList<>();
+    @Override
+    public Operation save(Operation operation) {
         operations.add(operation);
+        return operation;
     }
 
-    public List<Operation> getOperations() {
+    @Override
+    public List<Operation> getElements() {
         return operations;
     }
 }

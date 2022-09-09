@@ -1,7 +1,5 @@
 package by.tms.web.servlet;
 
-import by.tms.web.constants.ServletConstants;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

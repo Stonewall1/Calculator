@@ -4,7 +4,6 @@ import by.tms.entity.Operation;
 import by.tms.entity.User;
 import by.tms.service.CalculatorService;
 import by.tms.service.validation.OperationValidation;
-import by.tms.web.constants.ServletConstants;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,7 +16,7 @@ import java.time.LocalDateTime;
 @WebServlet(value = "/calculator", name = "CalculatorServlet")
 public class CalculatorServlet extends HttpServlet {
 
-    private final CalculatorService calculatorService = new CalculatorService();
+    private final CalculatorService calculatorService = CalculatorService.getInstance();
     private final OperationValidation operationValidation = new OperationValidation();
 
     @Override
