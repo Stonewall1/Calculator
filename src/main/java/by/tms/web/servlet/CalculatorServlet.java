@@ -16,7 +16,7 @@ import java.time.LocalDateTime;
 @WebServlet(value = "/calculator", name = "CalculatorServlet")
 public class CalculatorServlet extends HttpServlet {
 
-    private final CalculatorService calculatorService = CalculatorService.getInstance();
+    private final CalculatorService calculatorService = new CalculatorService();
     private final OperationValidation operationValidation = new OperationValidation();
 
     @Override

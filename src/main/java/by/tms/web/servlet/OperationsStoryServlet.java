@@ -14,7 +14,7 @@ import java.util.List;
 
 @WebServlet(value = "/story", name = "OperationsStoryServlet")
 public class OperationsStoryServlet extends HttpServlet {
-    private final CalculatorService calculatorService = CalculatorService.getInstance();
+    private final CalculatorService calculatorService = new CalculatorService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

@@ -2,25 +2,15 @@ package by.tms.service;
 
 import by.tms.entity.Operation;
 import by.tms.entity.User;
+import by.tms.storage.InMemoryStorage;
 import by.tms.storage.OperationStorage;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@Component
 public class CalculatorService {
-    private static CalculatorService instance;
-
-    private CalculatorService() {
-
-    }
-
-    public static CalculatorService getInstance() {
-        if (instance == null) {
-            instance = new CalculatorService();
-        }
-        return instance;
-    }
-    private final OperationStorage operationStorage = OperationStorage.getInstance();
+    private final InMemoryStorage<Operation> operationStorage = OperationStorage.getInstance();
 
     public Operation calculate(Operation operation) {
         double result = 0;
